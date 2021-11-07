@@ -21,21 +21,50 @@ router.get('/create',async(req,res)=>{
   }
 })
 
+router.post('/details',async(req,res)=>{
+  try {
+    console.log(req.body)
+    res.render('details', {
+      name: req.body.name,
+      email: req.body.email,
+      due_date: req.body.due_date,
+      product_name: req.body.product_name,
+      invoice_id: req.body.invoice_id,
+      address: req.body.address,
+      cost: req.body.cost,
+      status:req.body.status
+    })
+  }catch(err){
+    console.log(err)
+    res.render('error/500')
+  }
+})
+
 
 //add invoice to database
 // post /create
 router.post('/create',async(req,res)=>{
   try{
-console.log(req.body)
-    const new_invoice= await new Invoice(req.body)
-
+    const new_invoice = await new Invoice({
+      name: req.body.name,
+      email: req.body.email,
+      dueDate: req.body.dueDate,
+      status: req.body.status,
+      invoiceId: req.body.invoiceId,
+      productName: req.body.product_name,
+      address:req.body.address
+    })
+    new_invoice.product.hours = req.body.hours
+    new_invoice.product.charges = req.body.charges
+    new_invoice.product.labour = req.body.labour
+    
     new_invoice.save().then(()=>{
       console.log("success")
+      console.log(new_invoice)
     })
-
-
     // res.render('create',{
     // })
+    res.render('home')
   }catch(err){
     console.log(err)
   //   res.render('error/500')

@@ -16,8 +16,14 @@ require('mongoose-double')(mongoose);
       trim:true,
       required: true
     },
-
-    purchaseDate:{
+    productName:{
+      type: String,
+    
+    },
+    address: {
+      type:String
+    },
+    dueDate:{
       type: String,
       trim:true,
       required: true
@@ -27,18 +33,18 @@ require('mongoose-double')(mongoose);
       trim:true,
       required: true
     },
-    product:[{
+    product:{
       hours:{type:Schema.Types.Double,
     },
     charges:{type:Schema.Types.Double,
     },
     labour:{type:Schema.Types.Double,
     },
-    material:[{productname:{type:String},price:{type:Schema.Types.Double,}
+    material:[{productname:{type:String},price:{type:Schema.Types.Double},quantity:{type:Number}
     }],
     tax:{type:Schema.Types.Double},
     delivery_charge:{type:Schema.Types.Double}
-  }],
+  },
     status:{
       type: String,
       trim:true,

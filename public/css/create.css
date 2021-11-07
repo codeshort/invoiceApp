@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+    
+}
+
+body{
+    height:100vh;z-index:-1;
+}
+footer a:link,a:visited,a:active{
+    text-decoration: none;
+    color:#fff !important;
+}
+
+
+
+.container-fluid {
+    width: 100%;
+    /* padding-right: 15px; */
+    /* padding-left: 15px; */
+    margin-right: auto;
+    margin-left: auto;
+    height:100vh;
+}
+.container-fluid{
+    padding-left: 0px;
+    padding-right:0px;
+    overflow:hidden;
+}
+.outer{
+    padding-left:50px;
+    padding-right:50px;
+    padding-top:50px;
+    padding-bottom:50px;
+   
+    background-image:url('/img/Sign-up.jpeg');background-size:cover;height:100vh;overflow:visible;
+}
+
+h2{
+    position:relative;
+    text-align:center;
+    margin-bottom:40px;
+    margin-top:20px;
+}
+.box{
+    margin-top:30px;
+}
+.col-md-6{
+    margin-top:40px;
+    margin-bottom:40px;
+   
+}
+.text{
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:100px;
+    padding-left:15%;
+}
+
+
+
+@media(max-width:768px){
+    .container-fluid{
+        height:120vh;
+    }
+    .outer{
+        height:120vh;
+    }
+    .text{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        margin-top:0px;
+        padding-left:15%;
+    }
+    input{
+        text-align:center;
+    }
+    
+}
+
+@media(max-width:400px){
+    .outer{
+        padding-left:20px;
+        padding-right:20px;
+        padding-top:20px;
+        padding-bottom:20px;
+    }
+    input{
+        font-size:0.9em;
+    }
+}

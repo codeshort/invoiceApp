@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/create.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="/css/style.css" >
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Invoice</title>
+</head>
+<body  class="bg-secondary">
+   
+    <div class="container-fluid">
+    <div class="bg-image outer">
+    
+        
+        <h2 class="animate__animated animate__bounceInRight text-sm-center  text-secondary  " >Create Invoice</h2>
+       <div class="box animate__animated animate__bounceInRight row  rounded  border border-right border-dark" >
+        <div class="col-md-6 col-sm-offset-2">
+    <form method="post" action="/details">
+        
+        <div class="form-group">
+        <input class="my-3  text-sm-center form-control " name="name" type='text' placeholder='Name' required/>
+        </div>
+        <div class="form-group">
+        <input class="mb-3 text-sm-center form-control " name="product_name" type='text' placeholder='Product Name' required/>
+        </div>
+        <div class="form-group">
+        <input class="mb-3 text-sm-center form-control " name="invoice_id" type='text' placeholder='Invoice Id' required/>
+        </div>
+        <div class="form-group">
+              
+        <input class="mb-3 text-sm-center form-control " name="status" type='text' placeholder='Status' required/>
+        </div>
+        
+        
+      
+        
+   
+    </div>
+    <div class="col-md-6 col-sm-offset-2 ">
+        <div class="form-group">
+            <input class="my-3 text-sm-center form-control " name="email" type='email' placeholder='Email' required/>
+        </div>
+        <div class="form-group">
+            <input class="mb-3 text-sm-center form-control " name="due_date" type='text' placeholder="Due Date" required/>
+        </div>
+        <div class="form-group">
+            <input class="mb-3 text-sm-center form-control " name="address" type='text' placeholder='Address' required/>
+        </div>
+        <div class="form-group">
+            <input class="mb-3 text-sm-center form-control " name="cost" type='text' placeholder='Cost' required/>
+        </div>
+        <button type="submit" class="btn btn-info w-50  text-light" >Fill Details</button>
+       
+           
+    </div>
+    
+     </div>
+    </form>
+    </div>
+    </div>
+    
+</body>
+</html>
