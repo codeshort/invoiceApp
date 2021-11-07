@@ -11,7 +11,7 @@ const connectDB= async()=>{
     console.log(`Mongodb Connected: ${conn.connection.host}`)
   }catch(err){
       console.log(err)
-      prcoess.exit(1)
+      process.exit(1)
   }
 }
 module.exports = connectDB

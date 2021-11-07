@@ -57,7 +57,7 @@ router.post('/create',async(req,res)=>{
     new_invoice.product.hours = req.body.hours
     new_invoice.product.charges = req.body.charges
     new_invoice.product.labour = req.body.labour
-    
+
     new_invoice.save().then(()=>{
       console.log("success")
       console.log(new_invoice)
@@ -77,15 +77,25 @@ router.post('/search',async(req,res)=>{
   try{
 console.log(req.body)
     const invoice_list= await Invoice.find({email:req.body.email})
-    console.log(invoice_list)
+    console.log("fgvhj",invoice_list,"ghj")
 
 
-    // res.render('create',{
-    // })
+     res.render('search',{invoice:invoice_list,searched_mail:req.body.email
+     })
   }catch(err){
     console.log(err)
   //   res.render('error/500')
    }
 })
 
+//search for invoice
+// get /search
+router.get('/search',async(req,res)=>{
+  try{
+     res.render('search')
+  }catch(err){
+    console.log(err)
+  //   res.render('error/500')
+   }
+})
 module.exports=router
