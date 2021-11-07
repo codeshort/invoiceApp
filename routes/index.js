@@ -1,7 +1,7 @@
 const express= require('express')
 const router= express.Router()
 const Invoice=require('../models/invoice.js')
-
+const invoiceDetails=require('../Pdf_Generator/invoice_details')
 
 
 router.get('/',(req,res)=>{
@@ -61,6 +61,7 @@ router.post('/create',async(req,res)=>{
     new_invoice.save().then(()=>{
       console.log("success")
       console.log(new_invoice)
+      invoiceDetails(req)
     })
     // res.render('create',{
     // })
