@@ -92,7 +92,7 @@ class InvoiceGenerator {
         let theOutput = new PDFGenerator
         console.log(this.invoice)
 
-        const fileName = `Invoice ${this.invoice.invoiceId}.pdf`
+        const fileName = `Invoice${this.invoice.invoiceId}.pdf`
         theOutput.pipe(fs.createWriteStream(fileName))
 
         this.generateHeaders(theOutput)

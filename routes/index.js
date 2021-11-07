@@ -2,7 +2,7 @@ const express= require('express')
 const router= express.Router()
 const Invoice=require('../models/invoice.js')
 const invoiceDetails=require('../Pdf_Generator/invoice_details')
-
+const sendmail=require('../sendmail.js');
 
 router.get('/',(req,res)=>{
   res.render('home',{
@@ -58,10 +58,11 @@ router.post('/create',async(req,res)=>{
     new_invoice.product.charges = req.body.charges
     new_invoice.product.labour = req.body.labour
 
-    new_invoice.save().then(()=>{
+    await new_invoice.save().then(()=>{
       console.log("success")
       console.log(new_invoice)
-      invoiceDetails(req)
+       invoiceDetails(req)
+       sendmail(req.body.email,req.body.name,req.body.invoiceId);
     })
     // res.render('create',{
     // })
