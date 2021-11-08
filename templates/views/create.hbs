@@ -15,71 +15,71 @@
     <title>Create Invoice</title>
 </head>
 <body  class="bg-secondary">
-   
+
     <div class="container-fluid">
     <div class="bg-image outer">
-    
-        
+
+
         <h2 class="animate__animated animate__bounceInRight text-sm-center  text-secondary  " >Create Invoice</h2>
        <div class="box animate__animated animate__bounceInRight row  rounded  border border-right border-dark" >
         <div class="col-md-6 col-sm-offset-2">
     <form method="post" action="/details">
-        
+
         <div class="form-group">
-        <input class="my-3  text-sm-center form-control " name="name" type='text' placeholder='Name' required/>
+        <input class="my-3  text-sm-center form-control " name="name" type='text' placeholder='Name' autocomplete="off" required/>
         </div>
         <div class="form-group">
-        <input class="mb-3 text-sm-center form-control " name="product_name" type='text' placeholder='Product Name' required/>
+        <input class="mb-3 text-sm-center form-control " name="product_name" type='text' placeholder='Product Name' autocomplete="off" required/>
         </div>
         <div class="form-group">
-        <input class="mb-3 text-sm-center form-control " name="invoice_id" type='text' placeholder='Invoice Id' required/>
+        <input class="mb-3 text-sm-center form-control " name="invoice_id" type='text' placeholder='Invoice Id' autocomplete="off" required/>
         </div>
         <div class="form-group mb-3">
-            
+
                 <select name = "status" class="form-control text-sm-center">Select Status
             <option value = "Pending" selected>Status - Pending</option>
             <option value = "Paid">Status - Paid</option>
             <option value = "Outstanding">Status - Outstanding</option>
          </select>
- 
+
         {{!-- <input class="mb-3 text-sm-center form-control " name="status" type='text' placeholder='Status' required/> --}}
         </div>
         <div class="form-group">
-              
-        <input class="mb-3 text-sm-center form-control " name="delivery_charge" type='text' placeholder='Delivery Charge' required/>
+
+        <input class="mb-3 text-sm-center form-control " name="delivery_charge" type='text' placeholder='Delivery Charge' autocomplete="off" required/>
         </div>
+
         
-        
-      
-        
-   
+
+
+
     </div>
     <div class="col-md-6 col-sm-offset-2 ">
         <div class="form-group">
-            <input class="my-3 text-sm-center form-control " name="email" type='email' placeholder='Email' required/>
+            <input class="my-3 text-sm-center form-control " name="email" type='email' placeholder='Email' autocomplete="off" required/>
         </div>
         <div class="form-group">
-            <input class="mb-3 text-sm-center form-control " name="due_date" type='text' placeholder="Due Date" required/>
+            <input class="mb-3 text-sm-center form-control " name="due_date" type='text' placeholder="Due Date" autocomplete="off" required/>
         </div>
         <div class="form-group">
-            <input class="mb-3 text-sm-center form-control " name="address" type='text' placeholder='Address' required/>
+            <input class="mb-3 text-sm-center form-control " name="address" type='text' placeholder='Address' autocomplete="off" required/>
         </div>
         <div class="form-group">
-            <input class="mb-3 text-sm-center form-control " name="cost" type='text' placeholder='Cost' required/>
+            <input class="mb-3 text-sm-center form-control " name="cost" type='text' placeholder='Cost' autocomplete="off" required/>
         </div>
         <div class="form-group">
-              
-        <input class="mb-3 text-sm-center form-control " name="tax" type='text' placeholder='Tax' required/>
+
+        <input class="mb-3 text-sm-center form-control " name="tax" type='text' placeholder='Tax' autocomplete="off" required/>
         </div>
         <button type="submit" class="btn btn-info w-50  text-light" >Fill Details</button>
-       
-           
+
+
     </div>
-    
+
      </div>
     </form>
     </div>
     </div>
-    
+
 </body>
 </html>

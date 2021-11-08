@@ -33,7 +33,7 @@
             {{#each invoice}}
 
             <tr>
-              <td>{{invoiceId}}</td>
+              <td><a href="/display/invoice/{{invoiceId}}"  target="_blank">{{invoiceId}}</a></td>
               <td><span class="">{{dueDate}}</span></td>
               <td>{{status}}</td>
 
@@ -64,7 +64,7 @@
           </tbody>
         </table>
     {{else}}
-    <p>You  don't have any stories right now.</p>
+    <h3><p>Nothing to Display right now</p><h3>
     {{/if}}
 
 </div>

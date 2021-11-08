@@ -23,6 +23,7 @@ app.use(express.static(publicDirectoryPath))
 app.use('/',require('./routes/index.js'));
 app.use('/update', require('./routes/update.js'));
 app.use('/pie', require('./routes/chart.js'));
+app.use('/display', require('./routes/displaypdf.js'));
 
 const PORT= process.env.PORT || 3000
 

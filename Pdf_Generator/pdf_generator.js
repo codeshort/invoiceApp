@@ -8,7 +8,8 @@ class InvoiceGenerator {
     }
 
     generateHeaders(doc) {
-        const billingAddress = this.invoice.address;
+      const name=this.invoice.address.name
+        const billingAddress = this.invoice.address.address;
         doc
             .image('./Pdf_Generator/door-company-logo.jpg', 0, 0, { width: 250})
             .fontSize(20)
@@ -18,17 +19,20 @@ class InvoiceGenerator {
             .text(`Invoice Number: ${this.invoice.invoiceId}`, {align: 'right'})
             .text(`Due: ${this.invoice.dueDate}`, {align: 'right'})
             .moveDown()
+            .text(`${name}`,{align:'right'})
+            .fontSize(10)
             .text(`Billing Address:\n ${billingAddress}`, {align: 'right'})
 
 
-        
+
+
         const beginningOfPage = 50
         const endOfPage = 550
 
         doc.moveTo(beginningOfPage,200)
             .lineTo(endOfPage,200)
             .stroke()
-            
+
         doc
            .fontSize(20)
            .fillColor('#1D3E3A')
@@ -44,7 +48,7 @@ class InvoiceGenerator {
             .lineTo(endOfPage,330)
             .stroke()
     }
-    
+
     generateTable(doc) {
         const tableTop = 350
         const itemCodeX = 50

@@ -13,7 +13,7 @@ router.get('/',async(req,res) =>{
 await query1.countDocuments().then((count)=>{
   x = count;
 });
-var query2 = Invoice.find({'status': 'outstanding' });
+var query2 = Invoice.find({'status': 'outstanding' }).countDocuments();
 await query2.countDocuments().then((count)=>{
   y = count;
 });
@@ -25,7 +25,7 @@ console.log(x,y,z)
     params.x = x;
     params.y = y;
     params.z = z;
-
+console.log(params)
   return res.render('pie',{params : JSON.stringify(params)});
   }
   catch(e){

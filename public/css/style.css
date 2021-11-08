@@ -3,7 +3,7 @@ background-image:url("/img/img1.jpg");
 background-repeat: no-repeat;
  background-size: cover;
 height:100%;
-width:100%
+width:100%;
 }
 .wrapper{
   position: absolute;
@@ -45,7 +45,10 @@ display:flex;
   position: relative;
   background: white;
   width:80%;
+  height:500px;
   border-radius: 10px;
+
+overflow-y: auto;
 }
 table,tr{
   width:100%;

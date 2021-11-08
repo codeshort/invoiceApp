@@ -55,8 +55,8 @@ router.post('/create',async(req,res)=>{
       invoiceId: req.body.invoiceId,
       productName: req.body.product_name,
       address: req.body.address
-     
-      
+
+
     })
     new_invoice.product.hours = req.body.hours
     new_invoice.product.charges = req.body.charges
@@ -66,13 +66,13 @@ router.post('/create',async(req,res)=>{
     if (Array.isArray(req.body.productname)) {
       for (i = 0; i < req.body.productname.length; i++){
 
-      
+
         new_invoice.product.material.push({
           productname: req.body.productname[i],
           quantity: req.body.quantity[i],
           price:req.body.price[i]
         })
-       
+
       }
     }
     else {
@@ -85,17 +85,15 @@ router.post('/create',async(req,res)=>{
 
     await new_invoice.save().then(()=>{
       console.log("success")
-      console.log(new_invoice)
-      
-      console.log(new_invoice.product.material[0])
-     
-     invoiceDetails(req, new_invoice.product.material)
-     sendmail(req.body.email,req.body.name,req.body.invoiceId);
-  
-       
-       
+
+
+      invoiceDetails(new_invoice, new_invoice.product.material)
+             const link=`${process.env.HOST}/display/invoice/${req.body.invoiceId}`
+              sendmail(req.body.email,req.body.name,link);
+
+
     })
-   
+
     // res.render('create',{
     // })
     res.render('home')
@@ -111,9 +109,6 @@ router.post('/search',async(req,res)=>{
   try{
 console.log(req.body)
     const invoice_list= await Invoice.find({email:req.body.email})
-    console.log("fgvhj",invoice_list,"ghj")
-
-
      res.render('search',{invoice:invoice_list,searched_mail:req.body.email
      })
   }catch(err){
@@ -149,11 +144,19 @@ router.post('/update-form', (req, res) => {
 })
 
 router.post('/edit/:id',async (req, res) => {
-  let invoice = await Invoice.findById(req.params.id).lean()
-  invoice = await Invoice.findByIdAndUpdate(req.params.id, { status: req.body.status }).then(() => {
-    console.log('Updated')
-  })
-  console.log(invoice)
-  res.redirect('/search')
+
+await Invoice.findByIdAndUpdate(req.params.id, { status: req.body.status }).then((inv)=>{
+})
+   Invoice.findById(req.params.id).then(async (invoice)=>{
+
+     await invoiceDetails(invoice, invoice.product.material)
+      const link=`${process.env.HOST}/display/invoice/${invoice.invoiceId}`
+      sendmail(invoice.email,invoice.name,link)
+
+      const invoice_list= await  Invoice.find({email:invoice.email})
+      res.render('search',{invoice:invoice_list,searched_mail:invoice.email})
+ })
+
+
 })
 module.exports=router

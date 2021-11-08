@@ -4,7 +4,7 @@
   <script>
     function clean_first_tr(firstTr) {
     let children = firstTr.children;
-    
+
     children = Array.isArray(children) ? children : Object.values(children);
     children.forEach(x=>{
         if(x !== firstTr.lastElementChild)
@@ -42,28 +42,28 @@ function remove_tr(This) {
     <title>Fill Details</title>
 </head>
 <body>
-    
+
   <p class="text-sm-center text-1 text-secondary">Fill The Details</p>
   <form action="/create" method="post">
     <div class="container">
-   
+
       <div class="row row-1">
       <div class="form-group col-md-6 col-offset-2">
-        
-          <input class="form-control" type="text" placeholder="Number of hours" name="hours"/>
-        
+
+          <input class="form-control" type="text" placeholder="Number of hours" autocomplete="off" name="hours"/>
+
       </div>
       <div class="form-group col-md-6 col-offset-2">
-       
-          <input class="form-control" type="text" placeholder="Charge per hour" name="charges"/>
-        
+
+          <input class="form-control" type="text" placeholder="Charge per hour" autocomplete="off" name="charges"/>
+
       </div>
       <div class="form-group col-md-6 col-offset-2">
-        
-          <input class="form-control" type="text" placeholder="Number of labours" name="labour"/>
-        
+
+          <input class="form-control" type="text" placeholder="Number of labours" autocomplete="off" name="labour"/>
+
       </div>
-    
+
        <input type="hidden" name="name" value={{name}}>
         <input type="hidden" name="email" value={{email}}>
         <input type="hidden" name="product_name" value={{product_name}}>
@@ -82,7 +82,7 @@ function remove_tr(This) {
             </p>
           </div>
         </div>
-        
+
         <table class="_table">
           <thead>
             <tr>
@@ -101,13 +101,13 @@ function remove_tr(This) {
           <tbody id="table_body">
             <tr>
               <td>
-                <input type="text" class="form_control" placeholder="Enter Description" name="productname">
+                <input type="text" class="form_control" placeholder="Enter Description" name="productname" autocomplete="off">
               </td>
               <td>
-                <input type="text" class="form_control" placeholder="Enter Quantity" name="quantity">
+                <input type="text" class="form_control" placeholder="Enter Quantity" name="quantity" autocomplete="off">
               </td>
               <td>
-                <input type="text" class="form_control" placeholder="Enter Cost Per Quantity" name="price">
+                <input type="text" class="form_control" placeholder="Enter Cost Per Quantity" name="price" autocomplete="off">
               </td>
               <td>
                 <div class="action_container">
@@ -119,10 +119,10 @@ function remove_tr(This) {
             </tr>
           </tbody>
         </table>
-    
+
         <button type="submit" class="btn btn-info my-4">Create Invoice</button>
       </div>
     </form>
-      
+
 </body>
 </html>

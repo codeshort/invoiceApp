@@ -1,6 +1,6 @@
 'use strict'
 const InvoiceGenerator = require('./pdf_generator');
-const invoiceData = async (req,material) =>
+const invoiceData = async (invoice,material) =>
 {
   try
   {
@@ -22,20 +22,20 @@ const invoiceData = async (req,material) =>
      {
         address:
         {
-            name: req.body.name,
-            address: req.body.address,
+            name: invoice.name,
+            address: invoice.address,
         },
         items: items,
-        invoiceId: req.body.invoiceId,
-        dueDate: req.body.dueDate,
-        hours: req.body.hours,
-        charges: req.body.charges,
-        labours: req.body.labour,
-        labourCharge:req.body.charges*req.body.hours*req.body.labour,
-        deliveryCharge: req.body.delivery_charge,
-        taxes: req.body.tax,
-        status: req.body.status,
-        total: material_price+parseInt(req.body.charges*req.body.hours*req.body.labour)+parseInt(req.body.delivery_charge)+parseInt( req.body.tax)
+        invoiceId: invoice.invoiceId,
+        dueDate: invoice.dueDate,
+        hours: invoice.product.hours,
+        charges: invoice.product.charges,
+        labours: invoice.product.labour,
+        labourCharge:invoice.product.charges*invoice.product.hours*invoice.product.labour,
+        deliveryCharge: invoice.product.delivery_charge,
+        taxes: invoice.product.tax,
+        status: invoice.status,
+        total: material_price+parseInt(invoice.product.charges*invoice.product.hours*invoice.product.labour)+parseInt(invoice.product.delivery_charge)+parseInt( invoice.product.tax)
   };
 console.log(data.total)
   const ig = new InvoiceGenerator(data);
