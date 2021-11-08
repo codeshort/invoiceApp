@@ -9,6 +9,7 @@ const dirPath = path.join(__dirname, "/../");
 router.get("/invoice/:invoiceId",async (req, res) => {
   const name=`Invoice${req.params.invoiceId}`
  const path= `${__dirname}/../Invoice${req.params.invoiceId}.pdf`;
+ console.log(path)
   if (fs.existsSync(path)) {
         res.contentType("application/pdf");
         fs.createReadStream(path).pipe(res)

@@ -8,16 +8,16 @@ router.get('/',async(req,res) =>{
     var x =0;
     var y =0;
     var z = 0;
-  var query1 = Invoice.find({'status': 'pending' });
+  var query1 = Invoice.find({'status': 'Pending' });
   //console.log(query1)
 await query1.countDocuments().then((count)=>{
   x = count;
 });
-var query2 = Invoice.find({'status': 'outstanding' }).countDocuments();
+var query2 = Invoice.find({'status': 'Outstanding' })
 await query2.countDocuments().then((count)=>{
   y = count;
 });
-var query3 = Invoice.find({'status': 'paid' });
+var query3 = Invoice.find({'status': 'Paid' });
 await query3.countDocuments().then((count)=>{
   z = count;
 });
