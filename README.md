@@ -28,7 +28,7 @@ Admin can view invoices of any user by entering their mail and update the status
 * Handlebars
 
 ## Routes:-
-*  \:- Home page
+* \\:- Home page
 * \create:-First step of creating invoice
 * \details:-Second and final step pf creating invoice
 * \search:- Shows all invoices of a user by entering their mail
