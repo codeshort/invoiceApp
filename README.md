@@ -1,5 +1,5 @@
 # Project Track:-
-###Invoice App
+## Invoice App
 # About Project:-
 ## Objective:-
 The website mainly aims on creating, storing and updating status of invoices
@@ -15,7 +15,7 @@ Invoice stats displays the number of outstanding, paid and pending invoices in t
 ## Functionalities:-
 Allows admin to generate invoices and once the invoice is generated the user receives the link of pdf. \
 Allows admin to view the number of pending, paid and outstanding invoices in the form of pie chart. \
-Admin can view invoices of any user by entering their mail and update the status of their voices. \
+Admin can view invoices of any user by entering their mail and update the status of their voices. 
 
 ## Tech-stack:-
 * nodejs
@@ -28,7 +28,7 @@ Admin can view invoices of any user by entering their mail and update the status
 * Handlebars
 
 ## Routes:-
-* \:- Home page
+*  \:- Home page
 * \create:-First step of creating invoice
 * \details:-Second and final step pf creating invoice
 * \search:- Shows all invoices of a user by entering their mail
