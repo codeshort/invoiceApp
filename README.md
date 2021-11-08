@@ -42,7 +42,7 @@ Admin can view invoices of any user by entering their mail and update the status
 ## Setting up project on your machine:-
 * Clone the project
 * Change the current directory to enter the invoiceApp directory "cd dirName"
-* Install the packages
+* Install the packages by using command "npm install"
 * Type "npm run dev"
 * Open Browser
 * Enter URL localhost:3000/
