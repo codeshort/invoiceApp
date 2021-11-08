@@ -1,6 +1,6 @@
-#Project Track:-
+# Project Track:-
 Invoice App
-#About Project:-
+# About Project:-
 *Objective:-*
 The website mainly aims on creating, storing and updating status of invoices
 *Creating Invoice:-*
