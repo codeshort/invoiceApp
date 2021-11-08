@@ -32,7 +32,9 @@ router.post('/details',async(req,res)=>{
       invoice_id: req.body.invoice_id,
       address: req.body.address,
       cost: req.body.cost,
-      status:req.body.status
+      status: req.body.status,
+      tax: req.body.tax,
+      delivery_charge:req.body.delivery_charge
     })
   }catch(err){
     console.log(err)
@@ -52,17 +54,44 @@ router.post('/create',async(req,res)=>{
       status: req.body.status,
       invoiceId: req.body.invoiceId,
       productName: req.body.product_name,
-      address:req.body.address
+      address: req.body.address
+     
+      
     })
     new_invoice.product.hours = req.body.hours
     new_invoice.product.charges = req.body.charges
     new_invoice.product.labour = req.body.labour
+    new_invoice.product.delivery_charge = req.body.delivery_charge
+    new_invoice.product.tax = req.body.tax
+    if (Array.isArray(req.body.productname)) {
+      for (i = 0; i < req.body.productname.length; i++){
+
+      
+        new_invoice.product.material.push({
+          productname: req.body.productname[i],
+          quantity: req.body.quantity[i],
+          price:req.body.price[i]
+        })
+       
+      }
+    }
+    else {
+      new_invoice.product.material.push({
+        productname: req.body.productname,
+        quantity: req.body.quantity,
+        price:req.body.price
+      })
+    }
 
     await new_invoice.save().then(()=>{
       console.log("success")
       console.log(new_invoice)
-       invoiceDetails(req)
-       sendmail(req.body.email,req.body.name,req.body.invoiceId);
+      
+      console.log(new_invoice.product.material[0])
+      invoiceDetails(req, new_invoice.product.material)
+        sendmail(req.body.email,req.body.name,req.body.invoiceId);
+       
+       
     })
     // res.render('create',{
     // })
@@ -99,5 +128,19 @@ router.get('/search',async(req,res)=>{
     console.log(err)
   //   res.render('error/500')
    }
+})
+
+router.post('/update', (req, res) => {
+  try{
+    res.render('update', {
+      invoiceId: req.body.invoiceId,
+      dueDate: req.body.dueDate,
+      id: req.body.id,
+      status:req.body.status
+    })
+ }catch(err){
+   console.log(err)
+ //   res.render('error/500')
+  }
 })
 module.exports=router

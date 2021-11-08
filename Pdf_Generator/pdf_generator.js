@@ -21,14 +21,14 @@ class InvoiceGenerator {
             .text(`Billing Address:\n ${billingAddress}`, {align: 'right'})
 
 
-
+        
         const beginningOfPage = 50
         const endOfPage = 550
 
         doc.moveTo(beginningOfPage,200)
             .lineTo(endOfPage,200)
             .stroke()
-
+            
         doc
            .fontSize(20)
            .fillColor('#1D3E3A')
@@ -44,7 +44,7 @@ class InvoiceGenerator {
             .lineTo(endOfPage,330)
             .stroke()
     }
-
+    
     generateTable(doc) {
         const tableTop = 350
         const itemCodeX = 50

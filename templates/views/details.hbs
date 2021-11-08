@@ -23,10 +23,6 @@
     clean_first_tr(table_body.firstElementChild);
 }
 
-
-
-
-
 function remove_tr(This) {
     if(This.closest('tbody').childElementCount == 1)
     {
@@ -76,6 +72,8 @@ function remove_tr(This) {
         <input type="hidden" name="dueDate" value={{due_date}}>
         <input type="hidden" name="address" value={{address}}>
         <input type="hidden" name="cost" value={{cost}}>
+         <input type="hidden" name="tax" value={{tax}}>
+          <input type="hidden" name="delivery_charge" value={{delivery_charge}}>
         </div>
         <div class="row">
           <div class="col-sm-4">
@@ -103,13 +101,13 @@ function remove_tr(This) {
           <tbody id="table_body">
             <tr>
               <td>
-                <input type="text" class="form_control" placeholder="Enter Description" name="description">
+                <input type="text" class="form_control" placeholder="Enter Description" name="productname">
               </td>
               <td>
                 <input type="text" class="form_control" placeholder="Enter Quantity" name="quantity">
               </td>
               <td>
-                <input type="text" class="form_control" placeholder="Enter Cost Per Quantity" name="cost">
+                <input type="text" class="form_control" placeholder="Enter Cost Per Quantity" name="price">
               </td>
               <td>
                 <div class="action_container">

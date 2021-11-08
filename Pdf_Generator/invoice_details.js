@@ -1,11 +1,11 @@
 'use strict'
 const InvoiceGenerator = require('./pdf_generator');
-const invoiceData = async (req) =>
+const invoiceData = async (req,material) =>
 {
   try
   {
    const items = [];
-   var list =  await req.body.product.material;
+   var list =  await material;
    console.log(list);
    var material_price = 0;
    list.forEach(function(element){
@@ -15,7 +15,8 @@ const invoiceData = async (req) =>
      price:element.price,
      total: element.quantity*element.price,
    });
-    material_price = material_price+(element.quantity*element.price);
+     material_price = parseInt(material_price) +  parseInt(element.quantity * element.price);
+     console.log(material_price)
  });
      const data =
      {
@@ -27,22 +28,22 @@ const invoiceData = async (req) =>
         items: items,
         invoiceId: req.body.invoiceId,
         dueDate: req.body.dueDate,
-        hours: req.body.product.hours,
-        charges: req.body.product.charges,
-        labours: req.body.product.labour,
-        labourCharge:req.body.product.charges*req.body.product.hours*req.body.product.labour,
-        deliveryCharge: req.body.product.delivery_charge,
-        taxes: req.body.product.tax,
+        hours: req.body.hours,
+        charges: req.body.charges,
+        labours: req.body.labour,
+        labourCharge:req.body.charges*req.body.hours*req.body.labour,
+        deliveryCharge: req.body.delivery_charge,
+        taxes: req.body.tax,
         status: req.body.status,
-        total: material_price+(req.body.product.charges*req.body.product.hours*req.body.product.labour)+(req.body.product.delivery_charge)+( req.body.product.tax)
+        total: material_price+parseInt(req.body.charges*req.body.hours*req.body.labour)+parseInt(req.body.delivery_charge)+parseInt( req.body.tax)
   };
-
+console.log(data.total)
   const ig = new InvoiceGenerator(data);
   ig.generate()
 }
 catch(e)
 {
-  console.log(e);
+  //console.log(e);
   console.log("Could not make invoiceData");
 }
 }
