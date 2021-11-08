@@ -1,0 +1,20 @@
+text{
+  font-size: 25px;
+  font-weight: bold;
+   fill: black
+}
+.inside{
+  font-size: 25px;
+  font-weight: bold;
+  fill: white;
+}
+.label{
+  font-size: 25px;
+  font-weight: bold;
+}
+.boundary{
+
+  position: absolute;
+  left: 20%;
+  top: 10%;
+}

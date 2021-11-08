@@ -22,7 +22,7 @@ app.use(express.static(publicDirectoryPath))
 //Routes
 app.use('/',require('./routes/index.js'));
 app.use('/update', require('./routes/update.js'));
-
+app.use('/pie', require('./routes/chart.js'));
 
 const PORT= process.env.PORT || 3000
 
