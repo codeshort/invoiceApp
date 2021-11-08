@@ -9,7 +9,7 @@ console.log(x+" "+y+" "+z);
              .attr("width",width).attr("height",height)
              .style("background","#fcf9d4");
 var colors = d3.scaleOrdinal(d3.schemeDark2) ;
-var details = [{status:"Paid", number:x},{status:"Outstanding", number:y},{status:"Pending", number:z}];
+var details = [{status:"Pending", number:x},{status:"Outstanding", number:y},{status:"Paid", number:z}];
 var data = d3.pie().sort(null).value(function(d){
   return d.number;
 })(details)
