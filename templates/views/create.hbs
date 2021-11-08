@@ -34,9 +34,15 @@
         <div class="form-group">
         <input class="mb-3 text-sm-center form-control " name="invoice_id" type='text' placeholder='Invoice Id' required/>
         </div>
-        <div class="form-group">
-              
-        <input class="mb-3 text-sm-center form-control " name="status" type='text' placeholder='Status' required/>
+        <div class="form-group mb-3">
+            
+                <select name = "status" class="form-control text-sm-center">Select Status
+            <option value = "Pending" selected>Status - Pending</option>
+            <option value = "Paid">Status - Paid</option>
+            <option value = "Outstanding">Status - Outstanding</option>
+         </select>
+ 
+        {{!-- <input class="mb-3 text-sm-center form-control " name="status" type='text' placeholder='Status' required/> --}}
         </div>
         <div class="form-group">
               

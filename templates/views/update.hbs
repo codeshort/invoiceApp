@@ -7,14 +7,68 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/update.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Invoice</title>
 </head>
 <body>
     <div class="container-fluid">
-         
+         <div class="card w-75 mx-auto px-5 py-5">
+             <h4 class="mx-auto text-secondary">Update Status</h4>
+              <hr id="hr" class="mx-auto w-50 text mb-4"  style="height:2px;background: #777;color:#777;border:none;text-shadow:2px 2px 5px rgba(210, 56, 56, 1.0);"/>
+           
+             {{!-- {{name}} {{email}} {{invoiceId}}  {{id}} {{status}} --}}
+             <div class="row pb-4">
+                 <div class="col-md-6 col-offset-2">
+                      Name:- {{name}}
+                 </div>
+                 <div class="col-md-6 col-offset-2">
+                      Email:- {{email}}
+                 </div>
+                 <div class="col-md-6 col-offset-2">
+                      invoiceId:- {{invoiceId}}
+                 </div>
+             </div>
+            
+            <div style="visibility:hidden" id="hidden-text">{{status}}</div>
+            
+
+             <form action="/edit/{{id}}" method="post">
+                 <div class="form-group mb-3">
+           
+                <select name = "status" class="form-control text-sm-center">Select Status
+            <option value = "Pending" id="pending">Status - Pending</option>
+            <option value = "Paid" id="paid">Status - Paid</option>
+            <option value = "Outstanding" id="outstanding">Status - Outstanding</option>
+         </select>
+ 
+        {{!-- <input class="mb-3 text-sm-center form-control " name="status" type='text' placeholder='Status' required/> --}}
+        </div>
+        <button type="submit" class="btn btn-info w-25 float-sm-center  text-light" >Save</button>
+       
+             </form>
+         </div>
     </div>
+    <script>
+        let x = document.getElementById('hidden-text').innerHTML
+        console.log(x)
+        console.log(status)
+        console.log( JSON.stringify(status))
+        if(x=='Pending'){
+             console.log('pen')
+document.getElementById("pending").selected = true;
+        }
+         if(x=='Paid'){
+              console.log('paid')
+document.getElementById("paid").selected = true;
+        }
+         if(x=='Outstanding'){
+             console.log('out')
+document.getElementById("outstanding").selected = true;
+        }
+        
+        </script>
 </body>
 </html>
 

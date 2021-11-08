@@ -88,11 +88,14 @@ router.post('/create',async(req,res)=>{
       console.log(new_invoice)
       
       console.log(new_invoice.product.material[0])
-      invoiceDetails(req, new_invoice.product.material)
-        sendmail(req.body.email,req.body.name,req.body.invoiceId);
+     
+     invoiceDetails(req, new_invoice.product.material)
+     sendmail(req.body.email,req.body.name,req.body.invoiceId);
+  
        
        
     })
+   
     // res.render('create',{
     // })
     res.render('home')
@@ -130,11 +133,12 @@ router.get('/search',async(req,res)=>{
    }
 })
 
-router.post('/update', (req, res) => {
+router.post('/update-form', (req, res) => {
   try{
     res.render('update', {
       invoiceId: req.body.invoiceId,
-      dueDate: req.body.dueDate,
+      name: req.body.name,
+     email:req.body.email,
       id: req.body.id,
       status:req.body.status
     })
@@ -142,5 +146,14 @@ router.post('/update', (req, res) => {
    console.log(err)
  //   res.render('error/500')
   }
+})
+
+router.post('/edit/:id',async (req, res) => {
+  let invoice = await Invoice.findById(req.params.id).lean()
+  invoice = await Invoice.findByIdAndUpdate(req.params.id, { status: req.body.status }).then(() => {
+    console.log('Updated')
+  })
+  console.log(invoice)
+  res.redirect('/search')
 })
 module.exports=router

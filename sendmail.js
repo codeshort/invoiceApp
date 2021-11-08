@@ -45,8 +45,8 @@ const fs = require("fs");
 
 const sendmail =async (email, name,invoiceId) => {
 try{
-  const pathToAttachment =  `${__dirname}/Invoice${invoiceId}.pdf`;
-  var attachment =  fs.readFileSync(pathToAttachment, 'base64').toString();
+  const pathToAttachment = `${__dirname}/Invoice${invoiceId}.pdf`;
+  var attachment = await fs.readFileSync(pathToAttachment, 'base64').toString();
   console.log('worked')
     sgMail.send({
         to: email,
